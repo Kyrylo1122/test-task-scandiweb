@@ -1,29 +1,31 @@
-import { NavigationLink } from "./AppBar.style";
 import { Box } from "../Box";
 import Logo from "../Logo/Logo";
-const ClothesByGender = [
-  { id: 1, gender: "women", href: "women" },
-  { id: 2, gender: "men", href: "men" },
-  { id: 3, gender: "kids", href: "kids" },
-];
+import Navigation from "./Navigation/Navigation";
+import Actions from "./Actions/Actions";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 export default function AppBar() {
+  const currency = useSelector((state) => state.currency);
   return (
-    <Box
-      as="header"
-      border="1px solid brown"
-      display="flex"
-      justifyContent="space-between"
-    >
-      <Box as="nav">
-        <Box as="ul" display="flex">
-          {ClothesByGender.map(({ id, gender, href }) => (
-            <li key={id}>
-              <NavigationLink to={href}>{gender}</NavigationLink>
-            </li>
-          ))}
+    <Box as="header" boxShadow="rgba(0, 0, 0, 0.15) 0px 3px 10px">
+      <Box
+        className="container"
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        position="relative"
+      >
+        <Box as="nav">{<Navigation />}</Box>
+        <Box>
+          <Link to="/women">
+            <Logo />
+          </Link>
+        </Box>
+        <Box>
+          <Actions symbol={currency.symbol} />
         </Box>
       </Box>
-      <Logo />
     </Box>
   );
 }

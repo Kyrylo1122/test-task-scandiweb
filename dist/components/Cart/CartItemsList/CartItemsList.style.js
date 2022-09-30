@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+font - family;
+'Raleway';
+font - style;
+normal;
+font - weight;
+600;
+font - size;
+30;
+px;
+line - height;
+27;
+px;

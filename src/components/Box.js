@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import {
   color,
   space,
@@ -7,16 +7,22 @@ import {
   grid,
   background,
   border,
+  shadow,
   position,
-} from 'styled-system';
+  typography,
+} from "styled-system";
 
-export const Box = styled('div')(
+export const Box = styled("div")(
   color,
   space,
   layout,
   flexbox,
+
+  typography,
+
   grid,
   background,
   border,
-  position
+  position,
+  shadow
 );
