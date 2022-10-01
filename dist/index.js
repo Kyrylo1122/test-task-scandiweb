@@ -23,7 +23,7 @@ Store_1.store.dispatch((0, CartSlice_1.getTotal)());
 var root = client_1.default.createRoot(document.getElementById("root"));
 root.render(<react_1.default.StrictMode>
     <react_redux_1.Provider store={Store_1.store}>
-      <react_router_dom_1.BrowserRouter>
+      <react_router_dom_1.BrowserRouter basename="/test-task-scandiweb/">
         <react_2.PersistGate persistor={Store_1.persist}>
           <client_2.ApolloProvider client={client}>
             <styled_components_1.ThemeProvider theme={theme_1.theme}>
