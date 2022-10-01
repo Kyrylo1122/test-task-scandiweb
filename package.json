@@ -2,6 +2,7 @@
   "name": "test-task-scandiweb",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kyrylo1122.github.io/test-task-scandiweb/",
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "@reduxjs/toolkit": "^1.8.5",
