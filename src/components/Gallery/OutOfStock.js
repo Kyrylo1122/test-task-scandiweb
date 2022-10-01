@@ -1,5 +1,5 @@
 import { Box } from "../Box";
-import { TextOutOfStock } from "./Card/Card.style";
+import { TextOutOfStock } from "../Card/Card.style";
 
 export const OutOfStock = () => (
   <Box

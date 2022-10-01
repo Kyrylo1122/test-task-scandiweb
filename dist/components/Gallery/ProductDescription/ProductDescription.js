@@ -7,13 +7,13 @@ var react_router_dom_1 = require("react-router-dom");
 var Box_1 = require("../../Box");
 var Api_1 = require("../../Api/Api");
 var GalleryLeftSideBar_1 = __importDefault(require("./GalleryLeftSideBar/GalleryLeftSideBar"));
-var RightSideBar_1 = __importDefault(require("./RightSideBar"));
+var RightSideBar_1 = __importDefault(require("./RightSidebar/RightSideBar"));
 var react_1 = require("react");
-var Context_1 = require("../../Context/Context");
+var Context_1 = require("../../tools/Context/Context");
 var ProductDescription_style_1 = require("./ProductDescription.style");
 var ti_1 = require("react-icons/ti");
 var react_redux_1 = require("react-redux");
-var ActiveProduct_1 = require("../../Redux/ActiveProduct");
+var Loading_1 = __importDefault(require("../../Loading/Loading"));
 function ProductDescription() {
     var _a, _b;
     var location = (0, react_router_dom_1.useLocation)();
@@ -25,11 +25,10 @@ function ProductDescription() {
         if (!data) {
             return;
         }
-        dispatch((0, ActiveProduct_1.handleSetActiveProduct)(data === null || data === void 0 ? void 0 : data.product));
         setImage(data.product.gallery[0]);
     }, [data, dispatch]);
     if (loading)
-        return <p>Loading...</p>;
+        return <Loading_1.default />;
     if (error)
         return <p>Error :(</p>;
     var _e = data.product, brand = _e.brand, gallery = _e.gallery;

@@ -3,7 +3,7 @@ import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 import { toast } from "react-toastify";
 import { FixedTotalAmount } from "../tools/FixedTotalAmount";
-
+import { findPrice } from "../tools/FindPrice";
 const persistConfig = { key: "contacts", storage };
 
 const initialState = {
@@ -17,17 +17,10 @@ export const CartSlice = createSlice({
   initialState,
 
   reducers: {
-    changeCurrency(state, action) {
-      state.activeCurrency.currency = action.payload;
-    },
-    currencySymbol(state, action) {
-      state.activeCurrency.symbol = action.payload;
-    },
     equalCurrency(state, action) {
       const arrayWithNewPrice = state.cartItem.map((item) => {
-        const newPrice = item.prices.find(
-          (price) => price.currency.symbol === action.payload.symbol
-        );
+        const newPrice = findPrice(item.prices, action.payload.symbol);
+
         item.amount = newPrice.amount;
         item.symbol = newPrice.currency.symbol;
         return item;
@@ -48,9 +41,9 @@ export const CartSlice = createSlice({
       }
       const tempProduct = { ...action.payload, cartQuantity: 1 };
       state.cartItem.push(tempProduct);
-      // toast(`You added ${action.payload.name} to cart`, {
-      //   autoClose: 3000,
-      // });
+      toast(`You added ${action.payload.name} to cart`, {
+        autoClose: 3000,
+      });
     },
     addPrice(state, action) {
       const index = state.cartItem.findIndex(
@@ -67,9 +60,6 @@ export const CartSlice = createSlice({
         (item) => item.id !== action.payload.id
       );
       state.cartItem = nextCartItems;
-      // toast.info(`You removed ${action.payload.name} from the cart`, {
-      //   autoClose: 3000,
-      // });
     },
     clearCart(state) {
       state.cartItem = [];
@@ -90,9 +80,6 @@ export const CartSlice = createSlice({
           (item) => item.id !== action.payload.id
         );
         state.cartItem = nextCartItems;
-        // toast.info(`You removed ${action.payload.name} from the cart`, {
-        //   autoClose: 3000,
-        // });
       }
     },
     getTotal(state) {

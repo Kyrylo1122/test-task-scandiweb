@@ -1,15 +1,14 @@
-import { Box } from "../Box";
+import { Box } from "../../Box";
 import {
   CartCardText,
   CartCardQuantityBtn,
   CartCardRemoveBtn,
   CartCardPrice,
-  CartCardTotalText,
   CartCardTitle,
 } from "./CartCard.style";
 import { useDispatch } from "react-redux";
-import { getTotal, removeFromCart } from "../Redux/CartSlice";
-import { increaseQuantity, decreaseQuantity } from "../Redux/CartSlice";
+import { getTotal, removeFromCart } from "../../Redux/CartSlice";
+import { increaseQuantity, decreaseQuantity } from "../../Redux/CartSlice";
 import { useEffect } from "react";
 
 export default function CartCard({ item }) {
@@ -19,13 +18,12 @@ export default function CartCard({ item }) {
     dispatch(getTotal());
   }, [dispatch]);
 
-  const { id, brand, category, gallery, cartQuantity, name, amount, symbol } =
-    item;
+  const { id, brand, gallery, cartQuantity, name, amount, symbol } = item;
   return (
     <Box display="flex" m="20px">
       <Box className="meta" display="flex" flexDirection="column">
         <CartCardTitle>{brand}</CartCardTitle>
-        <CartCardText>{category}</CartCardText>
+        <CartCardText>{name}</CartCardText>
         <CartCardPrice>
           <label>
             {amount} {symbol}

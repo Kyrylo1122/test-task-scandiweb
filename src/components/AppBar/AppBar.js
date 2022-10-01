@@ -18,7 +18,7 @@ export default function AppBar() {
       >
         <Box as="nav">{<Navigation />}</Box>
         <Box>
-          <Link to="/women">
+          <Link to="/">
             <Logo />
           </Link>
         </Box>

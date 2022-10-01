@@ -21,6 +21,7 @@ var storage_1 = __importDefault(require("redux-persist/lib/storage"));
 var redux_persist_1 = require("redux-persist");
 var react_toastify_1 = require("react-toastify");
 var FixedTotalAmount_1 = require("../tools/FixedTotalAmount");
+var FindPrice_1 = require("../tools/FindPrice");
 var persistConfig = { key: "contacts", storage: storage_1.default };
 var initialState = {
     cartItem: [],
@@ -31,15 +32,9 @@ exports.CartSlice = (0, toolkit_1.createSlice)({
     name: "cart",
     initialState: initialState,
     reducers: {
-        changeCurrency: function (state, action) {
-            state.activeCurrency.currency = action.payload;
-        },
-        currencySymbol: function (state, action) {
-            state.activeCurrency.symbol = action.payload;
-        },
         equalCurrency: function (state, action) {
             var arrayWithNewPrice = state.cartItem.map(function (item) {
-                var newPrice = item.prices.find(function (price) { return price.currency.symbol === action.payload.symbol; });
+                var newPrice = (0, FindPrice_1.findPrice)(item.prices, action.payload.symbol);
                 item.amount = newPrice.amount;
                 item.symbol = newPrice.currency.symbol;
                 return item;
@@ -57,9 +52,9 @@ exports.CartSlice = (0, toolkit_1.createSlice)({
             }
             var tempProduct = __assign(__assign({}, action.payload), { cartQuantity: 1 });
             state.cartItem.push(tempProduct);
-            // toast(`You added ${action.payload.name} to cart`, {
-            //   autoClose: 3000,
-            // });
+            (0, react_toastify_1.toast)("You added ".concat(action.payload.name, " to cart"), {
+                autoClose: 3000,
+            });
         },
         addPrice: function (state, action) {
             var index = state.cartItem.findIndex(function (item) { return item.id === action.payload.id; });
@@ -71,9 +66,6 @@ exports.CartSlice = (0, toolkit_1.createSlice)({
         removeFromCart: function (state, action) {
             var nextCartItems = state.cartItem.filter(function (item) { return item.id !== action.payload.id; });
             state.cartItem = nextCartItems;
-            // toast.info(`You removed ${action.payload.name} from the cart`, {
-            //   autoClose: 3000,
-            // });
         },
         clearCart: function (state) {
             state.cartItem = [];
@@ -88,9 +80,6 @@ exports.CartSlice = (0, toolkit_1.createSlice)({
             if (state.cartItem[searchindIndex].cartQuantity === 0) {
                 var nextCartItems = state.cartItem.filter(function (item) { return item.id !== action.payload.id; });
                 state.cartItem = nextCartItems;
-                // toast.info(`You removed ${action.payload.name} from the cart`, {
-                //   autoClose: 3000,
-                // });
             }
         },
         getTotal: function (state) {

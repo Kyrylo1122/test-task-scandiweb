@@ -8,11 +8,11 @@ export const ProductImage = styled.img`
 `;
 
 export const ProductCard = styled.li`
+  width: calc((100% / 3) - 40px);
   padding: 16px;
   margin: 20px;
   transform: scale(1);
   transition: transform 300ms ease-in-out;
-
   :hover,
   :focus {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -36,11 +36,9 @@ export const TextOutOfStock = styled.p`
   left: 50%;
   position: absolute;
   color: ${(p) => p.theme.colors.grey};
-
   font-weight: 400;
   font-size: 24px;
   line-height: 1.6;
-
   text-align: center;
   width: 100%;
 `;

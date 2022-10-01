@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var Box_1 = require("../Box");
-var CartCard_1 = __importDefault(require("../CartCard/CartCard"));
+var CartCard_1 = __importDefault(require("../CartModal/CartCard/CartCard"));
 function CartGallery(_a) {
     var array = _a.array;
     return (<Box_1.Box as="ul" display="flex" flexDirection="column">

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Box } from "../Box";
 import CartGallery from "../CartGallery/CartGallery";
+
 import { clearCart, getTotal } from "../Redux/CartSlice";
 import {
   CartLinkBtnFirst,
@@ -62,22 +63,27 @@ export default function CartModal({ closeCart }) {
               </ShoppingCartText>
             </Box>
             <Box display="flex" mt="40px">
-              <CartLinkBtnFirst
+              <CartLinkBtnSecond
                 to="cart"
                 onClick={() => {
                   closeCart();
                 }}
               >
                 View Bag
-              </CartLinkBtnFirst>
-              <CartLinkBtnSecond
-                to="/"
-                onClick={() => {
-                  closeCart();
-                }}
-              >
-                Check out
               </CartLinkBtnSecond>
+              <Box ml="10px">
+                <CartLinkBtnFirst
+                  to="/checkout"
+                  onClick={() => {
+                    dispatch(clearCart());
+
+                    dispatch(getTotal());
+                    closeCart();
+                  }}
+                >
+                  Check out
+                </CartLinkBtnFirst>
+              </Box>
             </Box>
           </Box>
         )}

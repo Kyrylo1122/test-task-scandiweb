@@ -68,12 +68,21 @@ export default function Cart() {
           <label>{cartTotalQuantity}</label>
         </CartSummarySubTitle>
         <CartSummaryText>
-          {" "}
           Taxes and shipping are calculated at total price
         </CartSummaryText>
         <Box display="flex">
-          <CartLinkBtnFirst to="/"> Check out</CartLinkBtnFirst>
           <CartLinkBtnSecond to="/">Continue shopping</CartLinkBtnSecond>
+          <Box ml="10px">
+            <CartLinkBtnFirst
+              to="/checkout"
+              onClick={() => {
+                dispatch(clearCart());
+                dispatch(getTotal());
+              }}
+            >
+              Check out
+            </CartLinkBtnFirst>{" "}
+          </Box>
         </Box>
       </Box>
     </Box>

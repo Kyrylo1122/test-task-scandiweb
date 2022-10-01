@@ -1,12 +1,13 @@
 import { Box } from "../../Box";
+import Loading from "../../Loading/Loading";
 
 const { GetProducts } = require("../../Api/Api");
-const { default: Card } = require("../../Gallery/Card/Card");
-const { ProductCard } = require("../../Gallery/Card/Card.style");
+const { default: Card } = require("../../Card/Card");
+const { ProductCard } = require("../../Card/Card.style");
 
 export default function ClothesCards() {
   const { error, loading, data } = GetProducts();
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error :(</p>;
   const { products } = data?.categories?.find(
     (category) => category.name === "clothes"

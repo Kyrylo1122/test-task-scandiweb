@@ -5,12 +5,10 @@ var toolkit_1 = require("@reduxjs/toolkit");
 var CartSlice_1 = require("./CartSlice");
 var CurrencySlice_1 = require("./CurrencySlice");
 var redux_persist_1 = require("redux-persist");
-var ActiveProduct_1 = require("./ActiveProduct");
 exports.store = (0, toolkit_1.configureStore)({
     reducer: {
         cart: CartSlice_1.persistedContactsReducer,
         currency: CurrencySlice_1.persistedCurrencyReducer,
-        product: ActiveProduct_1.ProductSlice.reducer,
     },
     middleware: function (getDefaultMiddleware) {
         return getDefaultMiddleware({

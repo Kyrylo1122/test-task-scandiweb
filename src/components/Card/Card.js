@@ -1,10 +1,9 @@
-import { Box } from "../../Box";
-import { OutOfStock } from "../OutOfStock";
-import { ProductImage, CardText, CardLink } from "./Card.style";
+import { Box } from "../Box";
+import { OutOfStock } from "../Gallery/OutOfStock";
+import { ProductImage, CardText, CardLink, CardPrice } from "./Card.style";
 
-import style from "./Card.module.css";
 import { useLocation } from "react-router";
-import GetPrice from "../../Price/Price";
+import GetPrice from "../tools/GetPrice";
 
 export default function Card({ product }) {
   const { gallery, inStock, id, name, prices } = product;
@@ -17,16 +16,16 @@ export default function Card({ product }) {
       to={`/${id}`}
       style={!inStock ? { pointerEvents: "none" } : {}}
     >
-      <Box width="330px" height="354px" position="relative">
+      <Box width="100%" height="354px" position="relative">
         <ProductImage src={gallery[0]} alt={name} />
 
         {!inStock && <OutOfStock />}
       </Box>
       <Box mt="24px">
         <CardText>{name}</CardText>
-        <p className={style.cardPrice}>
+        <CardPrice>
           {amount} {symbol}
-        </p>
+        </CardPrice>
       </Box>
     </CardLink>
   );

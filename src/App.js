@@ -12,6 +12,7 @@ import Cart from "./components/Cart/Cart";
 import Tech from "./components/pages/Tech/Tech";
 import AllCategories from "./components/pages/AllCategories/AllCategories";
 import Clothes from "./components/pages/Clothes/Clothes";
+import CheckOut from "./components/pages/CheckOut/CheckOut";
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
 
         <Route path="clothes" element={<Clothes />} />
         <Route path="tech" element={<Tech />} />
+        <Route path="checkout" element={<CheckOut />} />
       </Routes>
     </Box>
   );

@@ -11,8 +11,8 @@ function CartItemsList(_a) {
     var dispatch = (0, react_redux_1.useDispatch)();
     return items === null || items === void 0 ? void 0 : items.map(function (_a) {
         var id = _a.id, brand = _a.brand, gallery = _a.gallery, cartQuantity = _a.cartQuantity, name = _a.name, amount = _a.amount, symbol = _a.symbol;
-        return (<Box_1.Box borderBottom="1px solid #5ECE7B">
-        <Cart_style_1.GridContainer key={id}>
+        return (<Box_1.Box borderBottom="1px solid #5ECE7B" key={id}>
+        <Cart_style_1.GridContainer>
           <Box_1.Box display="flex" alignItems="center">
             <Box_1.Box>
               <img src={gallery[0]} alt={id} width="200px"/>

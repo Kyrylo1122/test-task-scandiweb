@@ -15,6 +15,7 @@ var Cart_1 = __importDefault(require("./components/Cart/Cart"));
 var Tech_1 = __importDefault(require("./components/pages/Tech/Tech"));
 var AllCategories_1 = __importDefault(require("./components/pages/AllCategories/AllCategories"));
 var Clothes_1 = __importDefault(require("./components/pages/Clothes/Clothes"));
+var CheckOut_1 = __importDefault(require("./components/pages/CheckOut/CheckOut"));
 function App() {
     return (<Box_1.Box display="flex" flexDirection="column">
       <GlobalStyle_1.GlobalStyle />
@@ -27,6 +28,7 @@ function App() {
 
         <react_router_dom_1.Route path="clothes" element={<Clothes_1.default />}/>
         <react_router_dom_1.Route path="tech" element={<Tech_1.default />}/>
+        <react_router_dom_1.Route path="checkout" element={<CheckOut_1.default />}/>
       </react_router_dom_1.Routes>
     </Box_1.Box>);
 }

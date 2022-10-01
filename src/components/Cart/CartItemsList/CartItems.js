@@ -22,8 +22,8 @@ export default function CartItemsList({ items }) {
 
   return items?.map(
     ({ id, brand, gallery, cartQuantity, name, amount, symbol }) => (
-      <Box borderBottom="1px solid #5ECE7B">
-        <GridContainer key={id}>
+      <Box borderBottom="1px solid #5ECE7B" key={id}>
+        <GridContainer>
           <Box display="flex" alignItems="center">
             <Box>
               <img src={gallery[0]} alt={id} width="200px" />

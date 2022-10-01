@@ -47,12 +47,18 @@ function Cart() {
           <label>{cartTotalQuantity}</label>
         </Cart_style_1.CartSummarySubTitle>
         <Cart_style_1.CartSummaryText>
-          {" "}
           Taxes and shipping are calculated at total price
         </Cart_style_1.CartSummaryText>
         <Box_1.Box display="flex">
-          <CartModal_style_1.CartLinkBtnFirst to="/"> Check out</CartModal_style_1.CartLinkBtnFirst>
           <CartModal_style_1.CartLinkBtnSecond to="/">Continue shopping</CartModal_style_1.CartLinkBtnSecond>
+          <Box_1.Box ml="10px">
+            <CartModal_style_1.CartLinkBtnFirst to="/checkout" onClick={function () {
+            dispatch((0, CartSlice_1.clearCart)());
+            dispatch((0, CartSlice_1.getTotal)());
+        }}>
+              Check out
+            </CartModal_style_1.CartLinkBtnFirst>{" "}
+          </Box_1.Box>
         </Box_1.Box>
       </Box_1.Box>
     </Box_1.Box>);

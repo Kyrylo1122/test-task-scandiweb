@@ -1,5 +1,5 @@
-import { Box } from "../../Box";
-import ProductDetailedInfo from "../../ProductInfo/ProductInfo";
+import { Box } from "../../../Box";
+import ProductDetailedInfo from "../../../ProductInfo/ProductInfo";
 
 export default function ProductInfo({ image, alt }) {
   return (

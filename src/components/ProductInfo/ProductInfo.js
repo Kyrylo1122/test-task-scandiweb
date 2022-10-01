@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import AddToCartBtn from "../AddToCartBtn/AddToCartBtn";
 import { Box } from "../Box";
-import { ProductContext } from "../Context/Context";
-import GetPrice from "../Price/Price";
-import { useDispatch, useSelector } from "react-redux";
+import { ProductContext } from "../tools/Context/Context";
+import GetPrice from "../tools/GetPrice";
+import { useDispatch } from "react-redux";
 
 import {
   ProductTitle,
@@ -16,7 +16,7 @@ import { addToCart, addPrice, getTotal } from "../Redux/CartSlice";
 
 export default function ProductInfo() {
   const product = useContext(ProductContext);
-  const { description, name, category, prices, id, attributes } = product;
+  const { description, name, brand, prices, id } = product;
   const { amount, symbol } = GetPrice(prices);
   const dispatch = useDispatch();
 
@@ -33,7 +33,7 @@ export default function ProductInfo() {
   return (
     <Box>
       <ProductTitle>{name}</ProductTitle>
-      <ProductText>{category}</ProductText>
+      <ProductText>{brand}</ProductText>
       <ProductPrice>Price:</ProductPrice>
       <p className={style.productPrice}>
         {amount} {symbol}

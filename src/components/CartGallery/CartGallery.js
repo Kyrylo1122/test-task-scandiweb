@@ -1,5 +1,5 @@
 import { Box } from "../Box";
-import CartCard from "../CartCard/CartCard";
+import CartCard from "../CartModal/CartCard/CartCard";
 export default function CartGallery({ array }) {
   return (
     <Box as="ul" display="flex" flexDirection="column">

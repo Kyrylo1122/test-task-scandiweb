@@ -50,16 +50,20 @@ function CartModal(_a) {
               </CartModal_style_1.ShoppingCartText>
             </Box_1.Box>
             <Box_1.Box display="flex" mt="40px">
-              <CartModal_style_1.CartLinkBtnFirst to="cart" onClick={function () {
+              <CartModal_style_1.CartLinkBtnSecond to="cart" onClick={function () {
                 closeCart();
             }}>
                 View Bag
-              </CartModal_style_1.CartLinkBtnFirst>
-              <CartModal_style_1.CartLinkBtnSecond to="/" onClick={function () {
+              </CartModal_style_1.CartLinkBtnSecond>
+              <Box_1.Box ml="10px">
+                <CartModal_style_1.CartLinkBtnFirst to="/checkout" onClick={function () {
+                dispatch((0, CartSlice_1.clearCart)());
+                dispatch((0, CartSlice_1.getTotal)());
                 closeCart();
             }}>
-                Check out
-              </CartModal_style_1.CartLinkBtnSecond>
+                  Check out
+                </CartModal_style_1.CartLinkBtnFirst>
+              </Box_1.Box>
             </Box_1.Box>
           </Box_1.Box>)}
       </CartModal_style_1.CardModal>

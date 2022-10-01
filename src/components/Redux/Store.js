@@ -11,12 +11,10 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { ProductSlice } from "./ActiveProduct";
 export const store = configureStore({
   reducer: {
     cart: persistedContactsReducer,
     currency: persistedCurrencyReducer,
-    product: ProductSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

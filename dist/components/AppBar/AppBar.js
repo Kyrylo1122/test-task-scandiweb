@@ -15,7 +15,7 @@ function AppBar() {
       <Box_1.Box className="container" display="flex" justifyContent="space-between" alignItems="center" position="relative">
         <Box_1.Box as="nav">{<Navigation_1.default />}</Box_1.Box>
         <Box_1.Box>
-          <react_router_dom_1.Link to="/women">
+          <react_router_dom_1.Link to="/">
             <Logo_1.default />
           </react_router_dom_1.Link>
         </Box_1.Box>

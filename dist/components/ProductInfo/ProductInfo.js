@@ -17,16 +17,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = require("react");
 var AddToCartBtn_1 = __importDefault(require("../AddToCartBtn/AddToCartBtn"));
 var Box_1 = require("../Box");
-var Context_1 = require("../Context/Context");
-var Price_1 = __importDefault(require("../Price/Price"));
+var Context_1 = require("../tools/Context/Context");
+var GetPrice_1 = __importDefault(require("../tools/GetPrice"));
 var react_redux_1 = require("react-redux");
 var ProductInfo_style_1 = require("./ProductInfo.style");
 var ProductInfo_module_css_1 = __importDefault(require("./ProductInfo.module.css"));
 var CartSlice_1 = require("../Redux/CartSlice");
 function ProductInfo() {
     var product = (0, react_1.useContext)(Context_1.ProductContext);
-    var description = product.description, name = product.name, category = product.category, prices = product.prices, id = product.id, attributes = product.attributes;
-    var _a = (0, Price_1.default)(prices), amount = _a.amount, symbol = _a.symbol;
+    var description = product.description, name = product.name, brand = product.brand, prices = product.prices, id = product.id;
+    var _a = (0, GetPrice_1.default)(prices), amount = _a.amount, symbol = _a.symbol;
     var dispatch = (0, react_redux_1.useDispatch)();
     (0, react_1.useEffect)(function () {
         dispatch((0, CartSlice_1.addPrice)({ id: id, amount: amount, symbol: symbol }));
@@ -38,7 +38,7 @@ function ProductInfo() {
     };
     return (<Box_1.Box>
       <ProductInfo_style_1.ProductTitle>{name}</ProductInfo_style_1.ProductTitle>
-      <ProductInfo_style_1.ProductText>{category}</ProductInfo_style_1.ProductText>
+      <ProductInfo_style_1.ProductText>{brand}</ProductInfo_style_1.ProductText>
       <ProductInfo_style_1.ProductPrice>Price:</ProductInfo_style_1.ProductPrice>
       <p className={ProductInfo_module_css_1.default.productPrice}>
         {amount} {symbol}
