@@ -16,14 +16,14 @@ var Store_1 = require("./components/Redux/Store");
 var react_2 = require("redux-persist/integration/react");
 var CartSlice_1 = require("./components/Redux/CartSlice");
 var client = new client_2.ApolloClient({
-    uri: "http://localhost:4000/",
+    uri: 'http://localhost:4000/',
     cache: new client_2.InMemoryCache(),
 });
 Store_1.store.dispatch((0, CartSlice_1.getTotal)());
-var root = client_1.default.createRoot(document.getElementById("root"));
+var root = client_1.default.createRoot(document.getElementById('root'));
 root.render(<react_1.default.StrictMode>
     <react_redux_1.Provider store={Store_1.store}>
-      <react_router_dom_1.BrowserRouter basename="/test-task-scandiweb/">
+      <react_router_dom_1.BrowserRouter>
         <react_2.PersistGate persistor={Store_1.persist}>
           <client_2.ApolloProvider client={client}>
             <styled_components_1.ThemeProvider theme={theme_1.theme}>
@@ -34,3 +34,4 @@ root.render(<react_1.default.StrictMode>
       </react_router_dom_1.BrowserRouter>
     </react_redux_1.Provider>
   </react_1.default.StrictMode>);
+// basename = '/test-task-scandiweb/';
