@@ -21,7 +21,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename="/test-task-scandiweb/">
         <PersistGate persistor={persist}>
           <ApolloProvider client={client}>
             <ThemeProvider theme={theme}>
@@ -33,4 +33,3 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-// basename = '/test-task-scandiweb/';
